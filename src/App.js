@@ -9,6 +9,7 @@ import Modal from './Modal';
 import useMeasure from './useMeasure'
 import Accordion from './Accordion'
 // import Routes from './Router';
+import Waypoints from './Waypoints';
 const App = () => {
   const [isNavOpen, setNavOpen] = useState(false)
   // const s = useMeasure()
@@ -47,6 +48,7 @@ const App = () => {
          <Modal />
          {/* <Checkout isOpen={isNavOpen} /> */}
          <Accordion />
+         <Waypoints />
       </main>
     </animated.div>
   );
