@@ -5,6 +5,7 @@ import { useSpring, animated } from 'react-spring/web';
 import Toggle from './Toggle';
 import Nav from './Nav';
 import Checkout from './Checkout';
+import Routes from './Router';
 const App = () => {
   const [isNavOpen, setNavOpen] = useState(false)
 
@@ -27,7 +28,7 @@ const App = () => {
         <Nav style={navAnimation} />
       </header>
       <main>
-         <Toggle />
+         <Routes />
          {/* <Checkout isOpen={isNavOpen} /> */}
       </main>
     </animated.div>
