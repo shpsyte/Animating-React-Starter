@@ -1,21 +1,22 @@
 
 
-import React from 'react'
-import { animated, useSprings } from 'react-spring/web'
+import React, { useState} from 'react'
+import { animated, useSprings, useTrail } from 'react-spring/web'
 
 const items = [0.5,0.3,0.2,0.7,0.9,1]
 
 export default function Boxes() {
+  const [on, toggle] = useState(false)
 
-  const springs = useSprings(items.length, items.map(item => ({
-    from: { opacity: 0,  },
-    to: { opacity: item },
-    
-  })))
-
+  const trail = useTrail(items.length, {
+    opacity: on ? 0 : 1,
+    transform: on ? 'scale(0.3)' : 'scale(1)',
+  })
+ 
   return (
     <div className='boxes-grid'>
-      {springs.map((animation, i) => {
+      <button onClick={() => toggle(!on)}>Click me</button>
+      {trail.map((animation, i) => {
         return <animated.div key={i} style={animation} className='box' />
       })}
       
