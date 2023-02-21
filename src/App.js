@@ -11,6 +11,7 @@ import Accordion from './Accordion'
 // import Routes from './Router';
 import Waypoints from './Waypoints';
 import Gesture from './Gesture';
+import Boxes from './Boxes';
 const App = () => {
   const [isNavOpen, setNavOpen] = useState(false)
   // const s = useMeasure()
@@ -46,12 +47,12 @@ const App = () => {
       </header>
       <main>
          {/* <Routes /> */}
-         <Modal />
+         {/* <Modal /> */}
          {/* <Checkout isOpen={isNavOpen} /> */}
-         <Accordion />
-         <Gesture />
-
+         {/* <Accordion /> */}
+         {/* <Gesture /> */}
          {/* <Waypoints /> */}
+         <Boxes />
       </main>
     </animated.div>
   );
