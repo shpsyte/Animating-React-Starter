@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { useSpring, animated } from 'react-spring/web';
+import { useSpring, animated, config } from 'react-spring/web';
 
 const Checkout = ({ isOpen }) => {
 
   const { x } = useSpring({
     x: isOpen ? 0 : 100,
+    config: {
+      ...config.slow
+      // duration: 100,
+      // tension: 400,
+      // friction: 100,
+      
+
+    }
 
   })
 

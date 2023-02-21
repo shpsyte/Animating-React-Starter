@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { useSpring, animated } from 'react-spring/web';
+import { useSpring, animated, config } from 'react-spring/web';
 import Toggle from './Toggle';
 import Nav from './Nav';
 import Checkout from './Checkout';
-import Routes from './Router';
+import Modal from './Modal';
+import useMeasure from './useMeasure'
+import Accordion from './Accordion'
+// import Routes from './Router';
 const App = () => {
   const [isNavOpen, setNavOpen] = useState(false)
+  // const s = useMeasure()
+  // console.log(s)
 
   const navAnimation = useSpring({
     transform: isNavOpen ? `translate3d(0,0,0) ` : `translate3d(-100%,0,0) `,
+    onRest: () => console.log('rest'),
+    onStart: () => console.log('start'),
+    config: {
+      ...config.molasses
+      // duration: 100,
+      // tension: 400,
+      // friction: 100,
+      
+
+    }
 
   })
 
@@ -28,8 +43,10 @@ const App = () => {
         <Nav style={navAnimation} />
       </header>
       <main>
-         <Routes />
+         {/* <Routes /> */}
+         <Modal />
          {/* <Checkout isOpen={isNavOpen} /> */}
+         <Accordion />
       </main>
     </animated.div>
   );
