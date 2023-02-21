@@ -4,6 +4,7 @@ import './App.css';
 import { useSpring, animated } from 'react-spring/web';
 import Toggle from './Toggle';
 import Nav from './Nav';
+import Checkout from './Checkout';
 const App = () => {
   const [isNavOpen, setNavOpen] = useState(false)
 
@@ -23,10 +24,11 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="logo" alt='tip' />
         <button className="menu-button" onClick={() => setNavOpen(a => !a)}>Menu</button>
-        <Nav style={navAnimation} />
+        {/* <Nav style={navAnimation} /> */}
       </header>
       <main>
          <Toggle />
+         <Checkout isOpen={isNavOpen} />
       </main>
     </animated.div>
   );
