@@ -9,7 +9,7 @@ const App = () => {
   const [isNavOpen, setNavOpen] = useState(false)
 
   const navAnimation = useSpring({
-    transform: isNavOpen ? `translate3d(0,0,0) scale(1)` : `translate3d(-100%,0,0) scale(0.6)`,
+    transform: isNavOpen ? `translate3d(0,0,0) ` : `translate3d(-100%,0,0) `,
 
   })
 
@@ -24,11 +24,11 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="logo" alt='tip' />
         <button className="menu-button" onClick={() => setNavOpen(a => !a)}>Menu</button>
-        {/* <Nav style={navAnimation} /> */}
+        <Nav style={navAnimation} />
       </header>
       <main>
          <Toggle />
-         <Checkout isOpen={isNavOpen} />
+         {/* <Checkout isOpen={isNavOpen} /> */}
       </main>
     </animated.div>
   );
