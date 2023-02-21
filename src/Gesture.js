@@ -12,7 +12,17 @@ export default function Gesture() {
   }))
   
   const bind = useGesture(({ down, delta })  => {
-    api({ xy: down ? delta : [0, 0] })
+    if (down) {
+      const [x, y] = delta
+      api({ xy: down ? [x, 0] : [0, 0] })
+    } else {
+      if (delta[0] > 200) {
+        api({ xy: [500, 0] })
+      } else {
+        api({ xy: [0, 0] })
+
+      }
+    }
     
   })
  
@@ -21,6 +31,9 @@ export default function Gesture() {
           {...bind()} 
           className="box" 
           style={{
+            opacity: 
+               xy.interpolate({ map: Math.abs, range: [0,400], output: [1,0]}),
+                 
             transform: xy.interpolate((x, y) => `translate3d(${x}px, ${y}px, 0)`)
           }} 
       />
