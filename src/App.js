@@ -12,6 +12,7 @@ import Accordion from './Accordion'
 import Waypoints from './Waypoints';
 import Gesture from './Gesture';
 import Boxes from './Boxes';
+import BoxesChain from './BoxesChain';
 const App = () => {
   const [isNavOpen, setNavOpen] = useState(false)
   // const s = useMeasure()
@@ -19,16 +20,10 @@ const App = () => {
 
   const navAnimation = useSpring({
     transform: isNavOpen ? `translate3d(0,0,0) ` : `translate3d(-100%,0,0) `,
-    onRest: () => console.log('rest'),
-    onStart: () => console.log('start'),
-    config: {
-      ...config.molasses
-      // duration: 100,
-      // tension: 400,
-      // friction: 100,
-      
 
-    }
+
+    // transform: isNavOpen ? `translate3d(0,0,0) ` : `translate3d(-100%,0,0) `,
+    
 
   })
 
@@ -47,12 +42,13 @@ const App = () => {
       </header>
       <main>
          {/* <Routes /> */}
-         {/* <Modal /> */}
-         {/* <Checkout isOpen={isNavOpen} /> */}
-         {/* <Accordion /> */}
-         {/* <Gesture /> */}
-         {/* <Waypoints /> */}
-         <Boxes />
+         <Modal />
+         <Checkout isOpen={isNavOpen} />  
+         <Accordion />
+         <Gesture />
+         {/* <Waypoints />
+          <Boxes /> */}
+         
       </main>
     </animated.div>
   );
